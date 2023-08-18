@@ -5,6 +5,8 @@ metadata:
  labels:
    deployment: demo
 spec:
+  selector: 
+    deployment: demo
   replicas: 1
   template:
     metadata:
@@ -18,7 +20,7 @@ spec:
         - containerPort: 8080
         imagePullPolicy: Always
         env:
-        - name: puma
+        - name: MY_MYSQL_DB
           valueFrom:
             configMapKeyRef:
               name: the-map
